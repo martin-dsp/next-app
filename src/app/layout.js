@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Link from "next/link";
 import "./globals.css";
 import { Control } from "./Control";
 
@@ -11,7 +10,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const resp = await fetch("http://localhost:9999/topics", {
+  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL + "topics", {
     cache: "no-store",
   });
   const topics = await resp.json();
